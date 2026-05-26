@@ -2,6 +2,5 @@
 
 int main()
 {
-	my_func();
 	return 0;
 }

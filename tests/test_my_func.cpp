@@ -2,31 +2,50 @@
 #include "../my_func.h"
 #include "../GameState.h"
 
-TEST(MyFunc, CzyDziala)
-{
-	my_func();
-	SUCCEED();
-}
-
 TEST(GameState, MoznaPolozycNaPustymPolu)
 {
 	GameState state;
-	bool polozona{ polozFigure(state, 2, 2) };
-	ASSERT_TRUE(polozona);
+	ASSERT_TRUE(polozFigure(state, 2, 2));
 }
 
 TEST(GameState, NieMoznaPolozycNaZajetymPolu)
 {
 	GameState state;
 	polozFigure(state, 1, 1);
-	bool polozona{ polozFigure(state, 1, 1) };
-	ASSERT_FALSE(polozona);
+	ASSERT_FALSE(polozFigure(state, 1, 1));
 }
 
-TEST(GameState, ZmianaGracza)
+TEST(GameState, PostawWTymSamymRzedzie)
 {
 	GameState state;
 	polozFigure(state, 0, 0);
-	int gracz{ state.gracz };
-	ASSERT_TRUE(gracz == 2);
+	ASSERT_TRUE(polozFigure(state, 0, 1));
+}
+
+TEST(GameState, PostawWTejSamejKolumnie)
+{
+	GameState state;
+	polozFigure(state, 0, 0);
+	ASSERT_TRUE(polozFigure(state, 1, 0));
+}
+
+TEST(GameState, KolkoJakoGraczNaStarcie)
+{
+	GameState state;
+	assert(state.gracz == 1);
+}
+
+TEST(GameState, ZmianaGraczaPoRuchu)
+{
+	GameState state;
+	polozFigure(state, 0, 0);
+	assert(state.gracz == 2);
+}
+
+TEST(GameState, PowrotDoKolkaPoRuchuKrzyzyka)
+{
+	GameState state;
+	polozFigure(state, 0, 0);
+	polozFigure(state, 1, 1);
+	assert(state.gracz == 1);
 }
