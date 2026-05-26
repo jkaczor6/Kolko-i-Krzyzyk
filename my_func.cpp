@@ -5,7 +5,9 @@ void my_func()
 	
 }
 
-bool polozFigure()
+bool polozFigure(GameState& state)
 {
+	if (state.pole) return false;
+	state.pole = true;
 	return true;
 }

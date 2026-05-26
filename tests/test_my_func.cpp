@@ -1,5 +1,6 @@
 #include <gtest/gtest.h>
 #include "../my_func.h"
+#include "../GameState.h"
 
 TEST(MyFunc, CzyDziala)
 {
@@ -9,13 +10,15 @@ TEST(MyFunc, CzyDziala)
 
 TEST(GameState, MoznaPolozycNaPustymPolu)
 {
-	bool polozona{ polozFigure() };
+	GameState state;
+	bool polozona{ polozFigure(state) };
 	ASSERT_TRUE(polozona);
 }
 
 TEST(GameState, NieMoznaPolozycNaZajetymPolu)
 {
-	polozFigure();
-	bool polozona{ polozFigure() };
+	GameState state;
+	polozFigure(state);
+	bool polozona{ polozFigure(state) };
 	ASSERT_FALSE(polozona);
 }

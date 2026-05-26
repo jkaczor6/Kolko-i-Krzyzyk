@@ -1,3 +1,5 @@
 #pragma once
+#include "GameState.h"
+
 void my_func();
-bool polozFigure();
+bool polozFigure(GameState& state);
