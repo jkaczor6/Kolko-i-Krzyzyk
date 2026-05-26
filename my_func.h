@@ -1,3 +1,3 @@
 #pragma once
 void my_func();
-bool moznaPolozyc(bool pole);
+bool polozFigure();

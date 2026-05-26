@@ -5,7 +5,7 @@ void my_func()
 	
 }
 
-bool moznaPolozyc(bool pole)
+bool polozFigure()
 {
-	return !pole;
+	return true;
 }

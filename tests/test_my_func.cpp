@@ -9,12 +9,13 @@ TEST(MyFunc, CzyDziala)
 
 TEST(GameState, MoznaPolozycNaPustymPolu)
 {
-	bool pole{ false };
-	EXPECT_TRUE(moznaPolozyc(pole));
+	bool polozona{ polozFigure() };
+	ASSERT_TRUE(polozona);
 }
 
 TEST(GameState, NieMoznaPolozycNaZajetymPolu)
 {
-	bool pole{ true };
-	EXPECT_FALSE(moznaPolozyc(pole));
+	polozFigure();
+	bool polozona{ polozFigure() };
+	ASSERT_FALSE(polozona);
 }
