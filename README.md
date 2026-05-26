@@ -34,7 +34,7 @@ MyProject/
 
 
 
-\- \[CMake](https://cmake.org/) (minimum 3.14)
+\- [CMake](https://cmake.org/) (minimum 3.14)
 
 \- Kompilator C++ (np. MSVC, GCC, Clang)
 
