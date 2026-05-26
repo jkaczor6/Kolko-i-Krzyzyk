@@ -22,3 +22,11 @@ TEST(GameState, NieMoznaPolozycNaZajetymPolu)
 	bool polozona{ polozFigure(state, 1, 1) };
 	ASSERT_FALSE(polozona);
 }
+
+TEST(GameState, ZmianaGracza)
+{
+	GameState state;
+	polozFigure(state, 0, 0);
+	int gracz{ state.gracz };
+	ASSERT_TRUE(gracz == 2);
+}
