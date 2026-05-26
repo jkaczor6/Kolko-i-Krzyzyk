@@ -2,5 +2,5 @@
 
 struct GameState
 {
-	bool pole{ false };
+	int plansza[3][3]{};
 };
