@@ -7,5 +7,6 @@ bool placeFigure(GameState& state, int row, int col)
 	state.board[row][col] = state.playerTurn; // 1 - kolko, 2 - krzyzyk
 
 	state.playerTurn = (state.playerTurn == 1) ? 2 : 1;
+
 	return true;
 }

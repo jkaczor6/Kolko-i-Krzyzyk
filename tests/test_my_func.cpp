@@ -92,3 +92,13 @@ TEST(GameUI, RenderBoardWithCross)
 	};
 	assert(render_ui(state) == expectedBoard);
 }
+
+TEST(GameUI, TestToCharCircle)
+{
+	assert(toChar(1) == 'O');
+}
+
+TEST(GameUI, TestToCharCross)
+{
+	assert(toChar(2) == 'X');
+}
