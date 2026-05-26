@@ -1,6 +1,7 @@
 #include <gtest/gtest.h>
-#include "../my_func.h"
+#include "../game.h"
 #include "../GameState.h"
+#include "../ui.h"
 
 TEST(GameState, CanPlaceFigureOnEmptyCell)
 {
@@ -48,4 +49,46 @@ TEST(GameState, CirclesTurnAfterCross)
 	placeFigure(state, 0, 0);
 	placeFigure(state, 1, 1);
 	assert(state.playerTurn == 1);
+}
+
+TEST(GameUI, RenderEmptyBoard)
+{
+	GameState state;
+	std::string expectedBoard{ 
+		"-----   \n"
+		"|   |   \n"
+		"|   |   \n"
+		"|   |   \n"
+		"-----   \n"
+	};
+	assert(render_ui(state) == expectedBoard);
+}
+
+TEST(GameUI, RenderBoardWithCircle)
+{
+	GameState state;
+	placeFigure(state, 0, 0);
+	std::string expectedBoard{ 
+		"-----   \n"
+		"|O  |   \n"
+		"|   |   \n"
+		"|   |   \n"
+		"-----   \n"
+	};
+	assert(render_ui(state) == expectedBoard);
+}
+
+TEST(GameUI, RenderBoardWithCross)
+{
+	GameState state;
+	placeFigure(state, 0, 0);
+	placeFigure(state, 2, 1);
+	std::string expectedBoard{ 
+		"-----   \n"
+		"|O  |   \n"
+		"|   |   \n"
+		"| X |   \n"
+		"-----   \n"
+	};
+	assert(render_ui(state) == expectedBoard);
 }
