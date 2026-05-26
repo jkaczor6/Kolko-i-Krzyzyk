@@ -2,6 +2,6 @@
 
 struct GameState
 {
-	int plansza[3][3]{};
-	int gracz{ 1 }; // 1 - kolko, 2 - krzyzyk
+	int board[3][3]{};
+	int playerTurn{ 1 }; // 1 - kolko, 2 - krzyzyk
 };

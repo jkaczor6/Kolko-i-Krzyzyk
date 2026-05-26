@@ -2,50 +2,50 @@
 #include "../my_func.h"
 #include "../GameState.h"
 
-TEST(GameState, MoznaPolozycNaPustymPolu)
+TEST(GameState, CanPlaceFigureOnEmptyCell)
 {
 	GameState state;
-	ASSERT_TRUE(polozFigure(state, 2, 2));
+	ASSERT_TRUE(placeFigure(state, 2, 2));
 }
 
-TEST(GameState, NieMoznaPolozycNaZajetymPolu)
+TEST(GameState, CantPlaceFigureOnOccupiedCell)
 {
 	GameState state;
-	polozFigure(state, 1, 1);
-	ASSERT_FALSE(polozFigure(state, 1, 1));
+	placeFigure(state, 1, 1);
+	ASSERT_FALSE(placeFigure(state, 1, 1));
 }
 
-TEST(GameState, PostawWTymSamymRzedzie)
+TEST(GameState, PlaceFigureInTheSameRow)
 {
 	GameState state;
-	polozFigure(state, 0, 0);
-	ASSERT_TRUE(polozFigure(state, 0, 1));
+	placeFigure(state, 0, 0);
+	ASSERT_TRUE(placeFigure(state, 0, 1));
 }
 
-TEST(GameState, PostawWTejSamejKolumnie)
+TEST(GameState, PlaceFigureInTheSameColumn)
 {
 	GameState state;
-	polozFigure(state, 0, 0);
-	ASSERT_TRUE(polozFigure(state, 1, 0));
+	placeFigure(state, 0, 0);
+	ASSERT_TRUE(placeFigure(state, 1, 0));
 }
 
-TEST(GameState, KolkoJakoGraczNaStarcie)
+TEST(GameState, CirclesTurnOnStart)
 {
 	GameState state;
-	assert(state.gracz == 1);
+	assert(state.playerTurn == 1);
 }
 
-TEST(GameState, ZmianaGraczaPoRuchu)
+TEST(GameState, SwitchPlayerTurnAfterPlacingFigure)
 {
 	GameState state;
-	polozFigure(state, 0, 0);
-	assert(state.gracz == 2);
+	placeFigure(state, 0, 0);
+	assert(state.playerTurn == 2);
 }
 
-TEST(GameState, PowrotDoKolkaPoRuchuKrzyzyka)
+TEST(GameState, CirclesTurnAfterCross)
 {
 	GameState state;
-	polozFigure(state, 0, 0);
-	polozFigure(state, 1, 1);
-	assert(state.gracz == 1);
+	placeFigure(state, 0, 0);
+	placeFigure(state, 1, 1);
+	assert(state.playerTurn == 1);
 }

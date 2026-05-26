@@ -1,9 +1,9 @@
 #include "my_func.h"
 
-bool polozFigure(GameState& state, int row, int col)
+bool placeFigure(GameState& state, int row, int col)
 {
-	if (state.plansza[row][col] != 0) return false; // pole zajete
-	state.plansza[row][col] = state.gracz;
-	state.gracz = (state.gracz == 1) ? 2 : 1;
+	if (state.board[row][col] != 0) return false; // pole zajete
+	state.board[row][col] = state.playerTurn;
+	state.playerTurn = (state.playerTurn == 1) ? 2 : 1;
 	return true;
 }
